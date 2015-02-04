@@ -6,7 +6,7 @@
 //  Copyright (c) 2015 Ciklum. All rights reserved.
 //
 
-@import UIKit;
+@import UIKit.UIImage;
 
 @interface FLSDocument : NSObject
 @property (nonatomic, copy) NSString *title;

@@ -17,7 +17,7 @@
 - (instancetype)init {
     if (self = [super init]) {
         _dateFormatter = [NSDateFormatter new];
-        _dateFormatter.dateStyle = kCFDateFormatterShortStyle;
+        _dateFormatter.dateStyle = kCFDateFormatterMediumStyle;
         _dateFormatter.timeStyle = NSDateFormatterShortStyle;
         _dateFormatter.locale = [NSLocale currentLocale];
         _dateFormatter.timeZone = [NSTimeZone systemTimeZone];
@@ -62,7 +62,9 @@
 }
 
 #pragma mark - FLSDataSource
-- (CGSize)collectionView:(UICollectionView *)collectionView sizeFittingSize:(CGSize)fittingSize forItemAtIndexPath:(NSIndexPath *)indexPath {
+- (CGSize)collectionView:(UICollectionView *)collectionView
+         sizeFittingSize:(CGSize)fittingSize
+      forItemAtIndexPath:(NSIndexPath *)indexPath {
     FLSCollectionViewCell *cell = (FLSCollectionViewCell *)[self collectionView:collectionView cellForItemAtIndexPath:indexPath];
     CGRect frame = cell.frame;
     frame.size = fittingSize;
@@ -80,7 +82,10 @@
     return YES;
 }
 
-- (void)collectionView:(UICollectionView *)collectionView moveItemAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath isHeld:(BOOL)held {
+- (void)collectionView:(UICollectionView *)collectionView
+   moveItemAtIndexPath:(NSIndexPath *)fromIndexPath
+           toIndexPath:(NSIndexPath *)toIndexPath
+                isHeld:(BOOL)held {
     if (held) {
         if (fromIndexPath.item == toIndexPath.item) {
             return;

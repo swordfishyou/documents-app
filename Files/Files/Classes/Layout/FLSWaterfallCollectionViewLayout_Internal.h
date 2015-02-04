@@ -13,7 +13,7 @@
 @interface FLSWaterfallCollectionViewLayout ()
 /// Numbers of columns mapped by section index
 @property (nonatomic, strong) NSMutableDictionary *columnsBySection;
-/// Index path object hast to have section and column indexes: [section, column]
+/// Index path object hast to have section and column indexes: {section, column}
 @property (nonatomic, strong) NSMutableDictionary *columnMetricsByIndexPath;
 /// Item sizes mapped by item indexPath
 @property (nonatomic, strong) NSMutableDictionary *itemSizesByIndexPath;
@@ -24,6 +24,7 @@
 @property (nonatomic, assign) CGSize layoutSize;
 /// Indicates layout is building or not
 @property (nonatomic, assign, getter=isPreparingLayout) BOOL preparingLayout;
+/// Indicates layout has to be built from scratch and metrics reset
 @property (nonatomic, assign, getter=isLayoutDataValid) BOOL layoutDataValid;
 
 - (void)commonInit;

@@ -32,14 +32,17 @@ typedef NS_ENUM(NSUInteger, FLSAutoscrollDirection){
 @property (nonatomic, assign) CGPoint lastTranslation;
 /// Snapshot of a dragging item's view
 @property (nonatomic, strong) UIView *draggingView;
-/// Bounds to drag an item
+/// Bounds to draggingView may be constrained if -constrainPointToDragBounds: is called
 @property (nonatomic, assign) CGRect dragBounds;
 @property (nonatomic, strong) CADisplayLink *autoscrollTimer;
+/// If draggingView's frame intersects collectionView's bounds inset this value
+/// autosctoll is triggered
 @property (nonatomic, assign) UIEdgeInsets autoscrollTriggerInsets;
 @property (nonatomic, assign) FLSAutoscrollDirection autoscrollDirection;
 @property (nonatomic, assign) CGFloat autosctollVelocity;
 @property (nonatomic, strong) NSTimer *draggingHoldTimer;
 
+/// Horizontally constrain given point in dragBounds
 - (void)constrainPointToDragBounds:(CGPoint *)point;
 
 - (void)scheduleAutoscrollTimerWithDirection:(FLSAutoscrollDirection)direction;
